@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh">
+@include("/common/_header.html"){}
+<body class="page-body">
+<script>
+    $(document).ready(function () {
+
+        toastr.info("如果喜欢本站可以设置为主页这是对我最大的支持！", "小提示");
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "positionClass": "toast-top-right",
+            "showDuration": "15000",
+            "hideDuration": "1000",
+            "timeOut": "15000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    });
+
+</script>
+<!-- skin-white -->
+<div class="page-container">
+
+    @include("/common/_sidebar.html"){}
+
+    <div class="main-content">
+        <nav class="navbar user-info-navbar" role="navigation">
+            <!-- Left links for user info navbar -->
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+                <li class="hidden-sm hidden-xs"><a data-toggle="sidebar"
+                                                   href="#"> <i class="fa-bars"></i>
+                </a></li>
+                <li class="dropdown hover-line language-switcher">
+                    <iframe
+                            allowtransparency="true" frameborder="0"
+                            height="24"
+                            scrolling="no" src="https://tianqiapi.com/api.php?style=tm&skin=pitaya" style="margin-top: 25px" width="270"></iframe>
+                </li>
+            </ul>
+
+        </nav>
+
+<!--        <div class="s-search" id="search">-->
+<!--            <div class="hide-type-list" id="search-list">-->
+<!--                <div class="s-type">-->
+<!--                    <span></span>-->
+<!--                    <div class="s-type-list animated fadeInUp">-->
+<!--                        <label for="type-baidu">常用</label> <label for="type-search">搜索</label>-->
+<!--                        <label for="type-br">工具</label> <label for="type-zhihu">社区</label>-->
+<!--                        <label for="type-taobao1">生活</label> <label for="type-zhaopin">求职</label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="search-group group-a">-->
+<!--                    <span class="type-text">常用</span>-->
+<!--                    <ul class="search-type">-->
+<!--                        <li><input data-placeholder="站内搜索" hidden id="type-zhannei" name="type"-->
+<!--                                   type="radio" value="/search/"><label-->
+<!--                                for="type-zhannei"><span style="color: #888888">站内</span></label></li>-->
+<!--                        <li><input checked data-placeholder="百度一下" hidden id="type-baidu"-->
+<!--                                   name="type" type="radio"-->
+<!--                                   value="https://www.baidu.com/s?wd="><label for="type-baidu"><span-->
+<!--                                style="color: #2100E0">百度</span></label></li>-->
+<!--                        <li><input data-placeholder="谷歌两下" hidden id="type-google" name="type"-->
+<!--                                   type="radio" value="https://www.google.com/search?q="><label-->
+<!--                                for="type-google"><span style="color: #3B83FA">G</span><span-->
+<!--                                style="color: #F3442C">o</span><span style="color: #FFC300">o</span><span-->
+<!--                                style="color: #4696F8">g</span><span style="color: #2CAB4E">l</span><span-->
+<!--                                style="color: #F54231">e</span></label></li>-->
+<!--                        <li><input data-placeholder="淘宝" hidden id="type-taobao" name="type"-->
+<!--                                   type="radio" value="https://s.taobao.com/search?q="><label-->
+<!--                                for="type-taobao"><span style="color: #f40">淘宝</span></label></li>-->
+<!--                        <li><input data-placeholder="微软Bing搜索" hidden id="type-bing1" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://cn.bing.com/search?q="><label for="type-bing1"><span-->
+<!--                                style="color: #007daa">Bing</span></label></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="search-group group-b">-->
+<!--                    <span class="type-text">搜索</span>-->
+<!--                    <ul class="search-type">-->
+<!--                        <li><input data-placeholder="百度一下" hidden id="type-search" name="type"-->
+<!--                                   type="radio" value="https://www.baidu.com/s?wd="><label-->
+<!--                                for="type-search"><span style="color: #2319dc">百度</span></label></li>-->
+<!--                        <li><input data-placeholder="谷歌两下" hidden id="type-google1" name="type"-->
+<!--                                   type="radio" value="https://www.google.com/search?q="><label-->
+<!--                                for="type-google1"><span style="color: #3B83FA">G</span><span-->
+<!--                                style="color: #F3442C">o</span><span style="color: #FFC300">o</span><span-->
+<!--                                style="color: #4696F8">g</span><span style="color: #2CAB4E">l</span><span-->
+<!--                                style="color: #F54231">e</span></label></li>-->
+<!--                        <li><input data-placeholder="360好搜" hidden id="type-360" name="type"-->
+<!--                                   type="radio" value="https://www.so.com/s?q="><label-->
+<!--                                for="type-360"><span style="color: #19b955">360</span></label></li>-->
+<!--                        <li><input data-placeholder="搜狗搜索" hidden id="type-sogo" name="type"-->
+<!--                                   type="radio" value="https://www.sogou.com/web?query="><label-->
+<!--                                for="type-sogo"><span style="color: #ff5943">搜狗</span></label></li>-->
+<!--                        <li><input data-placeholder="微软Bing搜索" hidden id="type-bing" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://cn.bing.com/search?q="><label for="type-bing"><span-->
+<!--                                style="color: #007daa">Bing</span></label></li>-->
+<!--                        <li><input data-placeholder="UC移动端搜索" hidden id="type-sm" name="type"-->
+<!--                                   type="radio" value="https://yz.m.sm.cn/s?q="><label-->
+<!--                                for="type-sm"><span style="color: #ff8608">神马</span></label></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="search-group group-c">-->
+<!--                    <span class="type-text">工具</span>-->
+<!--                    <ul class="search-type">-->
+<!--                        <li><input data-placeholder="请输入网址(不带http://)" hidden id="type-br" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="http://rank.chinaz.com/all/"><label for="type-br"><span-->
+<!--                                style="color: #55a300">权重查询</span></label></li>-->
+<!--                        <li><input data-placeholder="请输入网址(不带http://)" hidden id="type-links" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="http://link.chinaz.com/"><label-->
+<!--                                for="type-links"><span style="color: #313439">友链检测</span></label></li>-->
+<!--                        <li><input data-placeholder="请输入网址(不带http://)" hidden id="type-icp" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://icp.aizhan.com/"><label-->
+<!--                                for="type-icp"><span style="color: #ffac00">备案查询</span></label></li>-->
+<!--                        <li><input data-placeholder="请输入网址(不带http://)" hidden id="type-ping" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="http://ping.chinaz.com/"><label-->
+<!--                                for="type-ping"><span style="color: #00599e">PING检测</span></label></li>-->
+<!--                        <li><input data-placeholder="请输入网址(不带http://)" hidden id="type-404" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="http://tool.chinaz.com/Links/?DAddress="><label-->
+<!--                                for="type-404"><span style="color: #f00">死链检测</span></label></li>-->
+<!--                        <li><input data-placeholder="请输入关键词" hidden id="type-ciku" name="type"-->
+<!--                                   type="radio" value="http://www.ciku5.com/s?wd="><label-->
+<!--                                for="type-ciku"><span style="color: #016DBD">关键词挖掘</span></label></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="search-group group-d">-->
+<!--                    <span class="type-text">社区</span>-->
+<!--                    <ul class="search-type">-->
+<!--                        <li><input data-placeholder="知乎" hidden id="type-zhihu" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://www.zhihu.com/search?type=content&q="><label for="type-zhihu"><span-->
+<!--                                style="color: #0084ff">知乎</span></label></li>-->
+<!--                        <li><input data-placeholder="微信" hidden id="type-wechat" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="http://weixin.sogou.com/weixin?type=2&query="><label for="type-wechat"><span-->
+<!--                                style="color: #00a06a">微信</span></label></li>-->
+<!--                        <li><input data-placeholder="微博" hidden id="type-weibo" name="type"-->
+<!--                                   type="radio" value="http://s.weibo.com/weibo/"><label-->
+<!--                                for="type-weibo"><span style="color: #e6162d">微博</span></label></li>-->
+<!--                        <li><input data-placeholder="豆瓣" hidden id="type-douban" name="type"-->
+<!--                                   type="radio" value="https://www.douban.com/search?q="><label-->
+<!--                                for="type-douban"><span style="color: #55a300">豆瓣</span></label></li>-->
+<!--                        <li><input data-placeholder="SEO问答社区" hidden id="type-why" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://ask.seowhy.com/search/?q="><label for="type-why"><span-->
+<!--                                style="color: #428bca">搜外问答</span></label></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="search-group group-e">-->
+<!--                    <span class="type-text">生活</span>-->
+<!--                    <ul class="search-type">-->
+<!--                        <li><input data-placeholder="淘宝" hidden id="type-taobao1" name="type"-->
+<!--                                   type="radio" value="https://s.taobao.com/search?q="><label-->
+<!--                                for="type-taobao1"><span style="color: #f40">淘宝</span></label></li>-->
+<!--                        <li><input data-placeholder="京东" hidden id="type-jd" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://search.jd.com/Search?keyword="><label for="type-jd"><span-->
+<!--                                style="color: #c91623">京东</span></label></li>-->
+<!--                        <li><input data-placeholder="下厨房" hidden id="type-xiachufang"-->
+<!--                                   name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="http://www.xiachufang.com/search/?keyword="><label for="type-xiachufang"><span-->
+<!--                                style="color: #dd3915">下厨房</span></label></li>-->
+<!--                        <li><input data-placeholder="香哈菜谱" hidden id="type-xiangha" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://www.xiangha.com/so/?q=caipu&s="><label for="type-xiangha"><span-->
+<!--                                style="color: #930">香哈菜谱</span></label></li>-->
+<!--                        <li><input data-placeholder="12306" hidden id="type-12306" name="type"-->
+<!--                                   type="radio" value="http://www.12306.cn/?"><label-->
+<!--                                for="type-12306"><span style="color: #07f">12306</span></label></li>-->
+<!--                        <li><input data-placeholder="去哪儿" hidden id="type-qunar" name="type"-->
+<!--                                   type="radio" value="https://www.qunar.com/?"><label-->
+<!--                                for="type-qunar"><span style="color: #00afc7">去哪儿</span></label></li>-->
+<!--                        <li><input data-placeholder="快递100" hidden id="type-快递100" name="type"-->
+<!--                                   type="radio" value="http://www.kuaidi100.com/?"><label-->
+<!--                                for="type-快递100"><span style="color: #3278e6">快递100</span></label></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="search-group group-f">-->
+<!--                    <span class="type-text">求职</span>-->
+<!--                    <ul class="search-type">-->
+<!--                        <li><input data-placeholder="智联招聘" hidden id="type-zhaopin" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://sou.zhaopin.com/jobs/searchresult.ashx?kw="><label for="type-zhaopin"><span-->
+<!--                                style="color: #689fee">智联招聘</span></label></li>-->
+<!--                        <li><input data-placeholder="前程无忧" hidden id="type-51job" name="type"-->
+<!--                                   type="radio" value="https://search.51job.com/?"><label-->
+<!--                                for="type-51job"><span style="color: #ff6000">前程无忧</span></label></li>-->
+<!--                        <li><input data-placeholder="拉钩网" hidden id="type-lagou" name="type"-->
+<!--                                   type="radio" value="https://www.lagou.com/jobs/list_"><label-->
+<!--                                for="type-lagou"><span style="color: #00b38a">拉钩网</span></label></li>-->
+<!--                        <li><input data-placeholder="猎聘网" hidden id="type-liepin" name="type"-->
+<!--                                   type="radio"-->
+<!--                                   value="https://www.liepin.com/zhaopin/?key="><label for="type-liepin"><span-->
+<!--                                style="color: #303a40">猎聘网</span></label></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <form action="?s=" id="super-search-fm" method="get" target="_blank">-->
+<!--                <input id="search-text" placeholder="输入关键字搜索" style="outline: 0"-->
+<!--                       type="text">-->
+<!--                <button type="submit">-->
+<!--                    <i class="fa fa-search "></i>-->
+<!--                </button>-->
+<!--            </form>-->
+<!--            <div class="set-check hidden-xs">-->
+<!--                <input autocomplete="off" class="bubble-3" id="set-search-blank"-->
+<!--                       type="checkbox">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <script type="text/javascript">-->
+<!--            eval(function (e, t, a, c, i, n) {-->
+<!--                if (i = function (e) {-->
+<!--                    return (e < t ? "" : i(parseInt(e / t))) + (35 < (e %= t) ? String.fromCharCode(e + 29) : e.toString(36))-->
+<!--                }, !"".replace(/^/, String)) {-->
+<!--                    for (; a&#45;&#45;;) n[i(a)] = c[a] || i(a);-->
+<!--                    c = [function (e) {-->
+<!--                        return n[e]-->
+<!--                    }], i = function () {-->
+<!--                        return "\\w+"-->
+<!--                    }, a = 1-->
+<!--                }-->
+<!--                for (; a&#45;&#45;;) c[a] && (e = e.replace(new RegExp("\\b" + i(a) + "\\b", "g"), c[a]));-->
+<!--                return e-->
+<!--            }('!2(){2 g(){h(),i(),j(),k()}2 h(){d.9=s()}2 i(){z a=4.8(\'A[B="7"][5="\'+p()+\'"]\');a&&(a.9=!0,l(a))}2 j(){v(u())}2 k(){w(t())}2 l(a){P(z b=0;b<e.O;b++)e[b].I.1c("s-M");a.F.F.F.I.V("s-M")}2 m(a,b){E.H.S("L"+a,b)}2 n(a){6 E.H.Y("L"+a)}2 o(a){f=a.3,v(u()),w(a.3.5),m("7",a.3.5),c.K(),l(a.3)}2 p(){z b=n("7");6 b||a[0].5}2 q(a){m("J",a.3.9?1:-1),x(a.3.9)}2 r(a){6 a.11(),""==c.5?(c.K(),!1):(w(t()+c.5),x(s()),s()?E.U(b.G,+T X):13.Z=b.G,10 0)}2 s(){z a=n("J");6 a?1==a:!0}2 t(){6 4.8(\'A[B="7"]:9\').5}2 u(){6 4.8(\'A[B="7"]:9\').W("14-N")}2 v(a){c.1e("N",a)}2 w(a){b.G=a}2 x(a){a?b.3="1a":b.16("3")}z y,a=4.R(\'A[B="7"]\'),b=4.8("#18-C-19"),c=4.8("#C-12"),d=4.8("#17-C-15"),e=4.R(".C-1b"),f=a[0];P(g(),y=0;y<a.O;y++)a[y].D("Q",o);d.D("Q",q),b.D("1d",r)}();', 62, 77, "||function|target|document|value|return|type|querySelector|checked||||||||||||||||||||||||||var|input|name|search|addEventListener|window|parentNode|action|localStorage|classList|newWindow|focus|superSearch|current|placeholder|length|for|change|querySelectorAll|setItem|new|open|add|getAttribute|Date|getItem|href|void|preventDefault|text|location|data|blank|removeAttribute|set|super|fm|_blank|group|remove|submit|setAttribute".split("|"), 0, {}));-->
+
+<!--        </script>-->
+
+
+        @include("/common/_content.html"){}
+
+        <!-- Main Footer -->
+        <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
+        <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
+        <!-- Or class "fixed" to  always fix the footer to the end of page -->
+        <footer class="main-footer sticky footer-type-1">
+            <div class="footer-inner">
+                <!-- Add your copyright text here -->
+                <div class="footer-text">
+                    &copy; 2018~2022 <a href="/"><strong>CLRobot</strong></a> design by <strong>wwt</strong></a>
+                </div>
+                <div class="go-up">
+                    <a href="#" rel="go-top"> <i class="fa-angle-up"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("img").lazyload({threshold: 180});
+    });
+    $(document).ready(
+        function () {
+            $(document).on('click', '.has-sub', function () {
+                var _this = $(this)
+                if (!$(this).hasClass('expanded')) {
+                    setTimeout(function () {
+                        _this.find('ul').attr("style", "")
+                    }, 300);
+
+                } else {
+                    $('.has-sub ul').each(function (id, ele) {
+                        var _that = $(this)
+                        if (_this.find('ul')[0] != ele) {
+                            setTimeout(function () {
+                                _that.attr("style", "")
+                            }, 300);
+                        }
+                    })
+                }
+            })
+            $('.user-info-menu .hidden-sm').click(function () {
+                if ($('.sidebar-menu').hasClass('collapsed')) {
+                    $('.has-sub.expanded > ul').attr("style", "")
+                } else {
+                    $('.has-sub.expanded > ul').show()
+                }
+            })
+            $("#main-menu li ul li").click(function () {
+                $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
+                $(this).addClass('active'); // 添加当前元素的样式
+            });
+            $("a.smooth").click(
+                function (ev) {
+                    ev.preventDefault();
+
+                    public_vars.$mainMenu.add(
+                        public_vars.$sidebarProfile)
+                        .toggleClass('mobile-is-visible');
+                    ps_destroy();
+                    $("html, body").animate(
+                        {
+                            scrollTop: $($(this).attr("href"))
+                                .offset().top - 30
+                        }, {
+                            duration: 500,
+                            easing: "swing"
+                        });
+                });
+            return false;
+        });
+
+    var href = "";
+    var pos = 0;
+    $("a.smooth").click(function (e) {
+        $("#main-menu li").each(function () {
+            $(this).removeClass("active");
+        });
+        $(this).parent("li").addClass("active");
+        e.preventDefault();
+        href = $(this).attr("href");
+        pos = $(href).position().top - 30;
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+# 项目排除路径
+/target/
+/src/main/resources/application.yml
+/sql/webstack.sql
+/帮助文档.docx
+/~$帮助文档.docx
